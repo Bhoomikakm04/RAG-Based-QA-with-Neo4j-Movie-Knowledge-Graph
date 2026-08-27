@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "category": "Actor lookup",
+    "question": "Which movies did Tom Hanks act in?",
+    "expected_type": "actor_to_movies"
+  },
+  {
+    "id": 2,
+    "category": "Actor lookup",
+    "question": "What movies did Tom Cruise act in?",
+    "expected_type": "actor_to_movies"
+  },
+  {
+    "id": 3,
+    "category": "Director lookup",
+    "question": "Which movies were directed by James Cameron?",
+    "expected_type": "director_to_movies"
+  },
+  {
+    "id": 4,
+    "category": "Movie lookup",
+    "question": "Who directed The Matrix?",
+    "expected_type": "movie_to_director"
+  },
+  {
+    "id": 5,
+    "category": "Movie lookup",
+    "question": "Who acted in The Matrix?",
+    "expected_type": "movie_to_actors"
+  },
+  {
+    "id": 6,
+    "category": "Movie lookup",
+    "question": "Who directed Forrest Gump?",
+    "expected_type": "movie_to_director"
+  },
+  {
+    "id": 7,
+    "category": "Release year",
+    "question": "Which movies were released after 2000?",
+    "expected_type": "year_filter"
+  },
+  {
+    "id": 8,
+    "category": "Relationship",
+    "question": "Who acted with Tom Hanks?",
+    "expected_type": "co_actors"
+  },
+  {
+    "id": 9,
+    "category": "Relationship",
+    "question": "Who acted with Keanu Reeves?",
+    "expected_type": "co_actors"
+  },
+  {
+    "id": 10,
+    "category": "Movie details",
+    "question": "Tell me about The Matrix",
+    "expected_type": "movie_details"
+  }
+]

@@ -1,0 +1,6 @@
+streamlit>=1.38
+neo4j>=5.20
+python-dotenv>=1.0
+requests>=2.32
+pandas>=2.2
+pyvis>=0.3.2

@@ -1,0 +1,42 @@
+GRAPH RAG MOVIE KNOWLEDGE ASSISTANT
+
+                 USER QUESTION
+                       |
+                       v
+              +----------------+
+              |  Streamlit UI  |
+              +-------+--------+
+                      |
+                      v
+              +----------------+
+              | Question       |
+              | Processing     |
+              +-------+--------+
+                      |
+                      v
+              +----------------+
+              | Cypher Query   |
+              | Templates      |
+              +-------+--------+
+                      |
+                      v
+              +----------------+
+              | Neo4j Movies    |
+              | Knowledge Graph |
+              +-------+--------+
+                      |
+                Retrieved Facts
+                      |
+                      v
+              +----------------+
+              | Context Builder |
+              +-------+--------+
+                      |
+                      v
+              +----------------+
+              | Mistral /       |
+              | Ollama          |
+              +-------+--------+
+                      |
+                      v
+              GROUNDED ANSWER

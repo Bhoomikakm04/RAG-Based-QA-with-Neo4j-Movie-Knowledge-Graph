@@ -1,0 +1,819 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #080b14;
+  --panel: #101522;
+  --panel-2: #151b2a;
+  --border: rgba(148,163,184,.14);
+  --text: #f8fafc;
+  --muted: #9aa6ba;
+  --blue: #5b8cff;
+  --cyan: #38bdf8;
+  --violet: #8b5cf6;
+  --green: #34d399;
+  --amber: #fbbf24;
+}
+
+html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+.stApp { background: radial-gradient(circle at 70% -10%, rgba(91,140,255,.16), transparent 32%), radial-gradient(circle at 10% 30%, rgba(139,92,246,.09), transparent 28%), var(--bg); color: var(--text); }
+[data-testid="stHeader"] { background: transparent; }
+.block-container { max-width: 1450px; padding-top: 2rem; padding-bottom: 3rem; }
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #0b101c 0%, #080c15 100%);
+  border-right: 1px solid rgba(148,163,184,.16);
+  min-width: 290px;
+  max-width: 290px;
+}
+section[data-testid="stSidebar"] > div { padding: 1.55rem 1.25rem 1.25rem; }
+section[data-testid="stSidebar"] .stRadio { margin-top: 2px; }
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] { gap: 8px; }
+section[data-testid="stSidebar"] .stRadio label {
+  position: relative;
+  border-radius: 13px;
+  padding: 12px 14px !important;
+  min-height: 46px;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  transition: background .18s ease, transform .18s ease, border-color .18s ease;
+  border: 1px solid transparent;
+  color: #dbe5f5 !important;
+}
+section[data-testid="stSidebar"] .stRadio label:hover {
+  background: rgba(91,140,255,.08);
+  border-color: rgba(91,140,255,.13);
+  transform: translateX(2px);
+}
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"],
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) {
+  background: linear-gradient(90deg, rgba(91,140,255,.17), rgba(139,92,246,.08));
+  border-color: rgba(91,140,255,.24);
+  box-shadow: inset 3px 0 0 #6d8fff, 0 8px 24px rgba(0,0,0,.14);
+}
+section[data-testid="stSidebar"] .stRadio label p {
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  letter-spacing: .05px;
+  line-height: 1.2;
+  margin: 0 !important;
+}
+section[data-testid="stSidebar"] .stRadio label > div:first-child { margin-right: 1px; }
+
+.brand { display:flex; align-items:center; gap:13px; margin: 7px 0 38px; padding: 3px 2px; }
+.brand-mark { width:42px; height:42px; display:grid; place-items:center; border-radius:13px; background:linear-gradient(135deg,#5b8cff,#8b5cf6); box-shadow:0 10px 28px rgba(91,140,255,.25); font-size:21px; }
+.brand-title { font-size:20px; font-weight:800; letter-spacing:-.45px; }
+.brand-sub { font-size:12px; color:var(--muted); margin-top:4px; }
+.sidebar-section { color:#7d8daa; text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:1.7px; margin:25px 0 12px; }
+
+/* Headers */
+.page-header { margin-bottom: 1.6rem; }
+.eyebrow { color:#7ea4ff; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.8px; margin-bottom:8px; }
+.page-header h1 { font-size:40px; line-height:1.08; letter-spacing:-1.6px; margin:0; font-weight:800; }
+.page-desc { color:var(--muted); max-width:900px; margin:.7rem 0 0; font-size:16px; line-height:1.7; }
+
+/* Hero */
+.hero { position:relative; overflow:hidden; padding:34px; border:1px solid var(--border); border-radius:24px; background:linear-gradient(135deg, rgba(19,27,45,.94), rgba(12,17,29,.92)); box-shadow:0 20px 70px rgba(0,0,0,.25); }
+.hero:after { content:""; position:absolute; width:280px; height:280px; border-radius:50%; right:-100px; top:-130px; background:radial-gradient(circle, rgba(91,140,255,.28), transparent 68%); }
+.hero-kicker { color:#8fb0ff; font-size:11px; text-transform:uppercase; letter-spacing:1.8px; font-weight:800; }
+.hero h1 { font-size:42px; max-width:760px; margin:10px 0 12px; letter-spacing:-1.7px; }
+.hero p { color:#aab5c7; max-width:760px; line-height:1.7; font-size:15px; }
+.hero-flow { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:22px; }
+.flow-chip { border:1px solid rgba(126,164,255,.18); background:rgba(91,140,255,.07); padding:9px 13px; border-radius:999px; font-size:14px; color:#dbe7ff; }
+.flow-arrow { color:#64748b; }
+
+/* Cards */
+.metric-card { display:flex; gap:14px; align-items:center; padding:18px; border-radius:18px; background:linear-gradient(145deg, rgba(21,27,42,.95), rgba(13,18,30,.9)); border:1px solid var(--border); min-height:94px; box-shadow:0 12px 35px rgba(0,0,0,.14); }
+.metric-icon { width:44px; height:44px; display:grid; place-items:center; border-radius:13px; font-size:20px; background:rgba(91,140,255,.12); }
+.metric-card.violet .metric-icon { background:rgba(139,92,246,.13); }
+.metric-card.green .metric-icon { background:rgba(52,211,153,.12); }
+.metric-card.amber .metric-icon { background:rgba(251,191,36,.12); }
+.metric-label { color:#95a3b8; font-size:13px; text-transform:uppercase; letter-spacing:1.05px; font-weight:750; }
+.metric-value { color:#fff; font-size:30px; font-weight:800; margin-top:3px; }
+
+.section-title { margin: 1.8rem 0 .9rem; }
+.section-title h2 { margin:0; font-size:24px; letter-spacing:-.55px; }
+.section-subtitle { color:var(--muted); font-size:14px; margin-top:6px; line-height:1.55; }
+.info-card { padding:20px; border:1px solid var(--border); border-radius:18px; background:rgba(16,21,34,.82); height:100%; }
+.info-icon { font-size:20px; margin-bottom:10px; }
+.info-card h3 { margin:0 0 9px; font-size:18px; }
+.info-card p { color:#a9b5c8; font-size:14px; line-height:1.7; margin:0; }
+
+.schema-box { padding:18px 20px; border:1px solid var(--border); border-radius:18px; background:linear-gradient(135deg, rgba(16,21,34,.9), rgba(12,17,27,.75)); }
+.schema-label { color:#8797b0; font-size:12px; text-transform:uppercase; letter-spacing:1.3px; font-weight:800; margin-bottom:10px; }
+.schema-chip { display:inline-block; padding:7px 10px; border-radius:9px; background:rgba(91,140,255,.09); border:1px solid rgba(91,140,255,.14); margin:3px 5px 3px 0; font-size:13px; color:#d7e2f7; }
+.schema-chip.rel { background:rgba(139,92,246,.09); border-color:rgba(139,92,246,.14); }
+
+.status-pill { display:inline-flex; align-items:center; gap:6px; padding:5px 9px; border-radius:999px; font-size:10px; font-weight:700; border:1px solid; }
+.status-pill.online { color:#6ee7b7; background:rgba(52,211,153,.08); border-color:rgba(52,211,153,.18); }
+.status-pill.offline { color:#fca5a5; background:rgba(248,113,113,.08); border-color:rgba(248,113,113,.18); }
+
+/* Streamlit controls */
+.stButton > button { border-radius:11px; border:1px solid rgba(126,164,255,.2); background:linear-gradient(135deg,#5b8cff,#7657e8); color:#fff; font-weight:700; box-shadow:0 10px 28px rgba(91,140,255,.18); transition:transform .15s, box-shadow .15s; }
+.stButton > button:hover { transform:translateY(-1px); box-shadow:0 14px 34px rgba(91,140,255,.28); }
+.stTextInput input, .stSelectbox div[data-baseweb="select"] > div { background:#111726 !important; border:1px solid var(--border) !important; border-radius:11px !important; font-size:15px !important; }
+.stTextInput label, .stSelectbox label { font-size:14px !important; font-weight:650 !important; }
+.stButton > button { font-size:14px !important; min-height:44px; }
+.stTextInput input:focus { border-color:rgba(91,140,255,.55) !important; box-shadow:0 0 0 1px rgba(91,140,255,.22) !important; }
+.stDataFrame, [data-testid="stTable"] { border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.stExpander { border:1px solid var(--border) !important; border-radius:13px !important; background:rgba(16,21,34,.55); }
+hr { border-color:var(--border); }
+
+/* Graph shell */
+.graph-shell { padding:8px; border:1px solid rgba(91,140,255,.18); border-radius:20px; background:linear-gradient(145deg, rgba(12,18,31,.98), rgba(8,12,21,.98)); box-shadow:0 20px 55px rgba(0,0,0,.24); }
+.graph-toolbar { display:flex; justify-content:space-between; align-items:center; padding:11px 14px 15px; color:#9cabc0; font-size:13px; }
+.graph-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; background:#34d399; box-shadow:0 0 12px rgba(52,211,153,.7); }
+
+.footer-note { text-align:center; color:#65738a; font-size:11px; padding-top:42px; letter-spacing:.2px; }
+
+@media (max-width: 900px) {
+  .page-header h1, .hero h1 { font-size:31px; }
+  .hero { padding:24px; }
+}
+
+
+/* =========================================================
+   Sidebar Navigation — spacious / large / distinctive
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+  min-width: 330px !important;
+  max-width: 330px !important;
+}
+
+section[data-testid="stSidebar"] > div {
+  padding: 2rem 1.45rem 1.35rem !important;
+}
+
+section[data-testid="stSidebar"] .brand {
+  margin: 8px 0 48px !important;
+  padding: 4px 2px !important;
+  gap: 15px !important;
+}
+
+section[data-testid="stSidebar"] .brand-mark {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 15px !important;
+  font-size: 24px !important;
+}
+
+section[data-testid="stSidebar"] .brand-title {
+  font-size: 23px !important;
+  line-height: 1.15 !important;
+}
+
+section[data-testid="stSidebar"] .brand-sub {
+  font-size: 12.5px !important;
+  margin-top: 6px !important;
+}
+
+section[data-testid="stSidebar"] .sidebar-section {
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  margin: 30px 0 16px !important;
+}
+
+/* Make the Streamlit radio group behave like a large custom navigation bar. */
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] {
+  gap: 10px !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: 60px !important;
+  padding: 0 18px !important;
+  border-radius: 15px !important;
+  border: 1px solid transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background: rgba(255,255,255,0.018) !important;
+  transition: all .18s ease !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label > div:first-child {
+  display: none !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label p {
+  position: relative !important;
+  padding-left: 39px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -.15px !important;
+  color: #eef4ff !important;
+  margin: 0 !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label p::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #b8c8ff;
+  background: rgba(91,140,255,.10);
+  border: 1px solid rgba(91,140,255,.16);
+  box-sizing: border-box;
+}
+
+section[data-testid="stSidebar"] .stRadio label:nth-child(1) p::before {
+  content: "⌂";
+}
+section[data-testid="stSidebar"] .stRadio label:nth-child(2) p::before {
+  content: "✦";
+}
+section[data-testid="stSidebar"] .stRadio label:nth-child(3) p::before {
+  content: "◈";
+}
+section[data-testid="stSidebar"] .stRadio label:nth-child(4) p::before {
+  content: "▦";
+}
+
+section[data-testid="stSidebar"] .stRadio label:hover {
+  transform: translateX(4px) !important;
+  background: linear-gradient(90deg, rgba(91,140,255,.12), rgba(139,92,246,.055)) !important;
+  border-color: rgba(91,140,255,.22) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label:hover p::before {
+  background: rgba(91,140,255,.17);
+  border-color: rgba(91,140,255,.32);
+}
+
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"],
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) {
+  min-height: 64px !important;
+  background: linear-gradient(100deg, rgba(91,140,255,.22), rgba(139,92,246,.11)) !important;
+  border: 1px solid rgba(91,140,255,.40) !important;
+  box-shadow:
+    inset 4px 0 0 #6d8fff,
+    0 12px 30px rgba(0,0,0,.18) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"] p,
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"] p::before,
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p::before {
+  color: #ffffff;
+  background: linear-gradient(135deg, #5b8cff, #8b5cf6);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 7px 18px rgba(91,140,255,.25);
+}
+
+/* Status area */
+section[data-testid="stSidebar"] .sidebar-section + div {
+  font-size: 16px !important;
+}
+
+section[data-testid="stSidebar"] .footer-note {
+  margin-top: 180px !important;
+  font-size: 12px !important;
+  color: #72819a !important;
+}
+
+/* Give the status text more room and make it readable at distance. */
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] div[style*="margin-bottom"] {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 13px !important;
+}
+
+@media (max-height: 850px) {
+  section[data-testid="stSidebar"] .footer-note {
+    margin-top: 100px !important;
+  }
+}
+
+/* v4 — remove the extra radio-group "Navigation" card/heading. */
+section[data-testid="stSidebar"] .stRadio > label {
+  display: none !important;
+}
+
+/* Style only actual radio options; never the group label. */
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label {
+  width: 100% !important;
+  min-height: 62px !important;
+  margin: 0 !important;
+  padding: 0 18px !important;
+  box-sizing: border-box !important;
+  border-radius: 15px !important;
+  border: 1px solid transparent !important;
+  background: rgba(255,255,255,0.018) !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: all .18s ease !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label > div:first-child {
+  display: none !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label p {
+  position: relative !important;
+  padding-left: 48px !important;
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 750 !important;
+  line-height: 1.25 !important;
+  color: #eef4ff !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label p::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #b8c8ff;
+  background: rgba(91,140,255,.10);
+  border: 1px solid rgba(91,140,255,.16);
+  box-sizing: border-box;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:nth-of-type(1) p::before { content: "⌂"; }
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:nth-of-type(2) p::before { content: "✦"; }
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:nth-of-type(3) p::before { content: "◈"; }
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:nth-of-type(4) p::before { content: "▦"; }
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:hover {
+  transform: translateX(3px) !important;
+  background: linear-gradient(90deg, rgba(91,140,255,.11), rgba(139,92,246,.045)) !important;
+  border-color: rgba(91,140,255,.22) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) {
+  min-height: 66px !important;
+  background: linear-gradient(100deg, rgba(91,140,255,.20), rgba(139,92,246,.10)) !important;
+  border: 1px solid rgba(91,140,255,.40) !important;
+  box-shadow: inset 4px 0 0 #6d8fff, 0 10px 26px rgba(0,0,0,.16) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) p::before {
+  color: #fff;
+  background: linear-gradient(135deg, #5b8cff, #8b5cf6);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 7px 18px rgba(91,140,255,.25);
+}
+
+/* =========================================================
+   GraphRAG — Theme 2: Teal Professional
+   Visual theme only. Existing layout/functionality preserved.
+   ========================================================= */
+
+:root {
+  --teal-50: #e6fffb;
+  --teal-100: #c9fff8;
+  --teal-200: #8ff5ea;
+  --teal-300: #4ddbd0;
+  --teal-400: #21c7bb;
+  --teal-500: #10a99f;
+  --teal-600: #07877f;
+  --teal-700: #066b66;
+  --teal-glow: rgba(16, 169, 159, .28);
+  --bg-main: #061316;
+  --bg-side: #071719;
+  --bg-card: #0a1c1f;
+  --bg-card-2: #0d2225;
+  --border: rgba(77, 219, 208, .18);
+  --border-strong: rgba(77, 219, 208, .42);
+  --text: #effffd;
+  --muted: #9bbab8;
+}
+
+/* Main application background */
+.stApp {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(16,169,159,.12), transparent 28%),
+    radial-gradient(circle at 12% 92%, rgba(6,107,102,.10), transparent 30%),
+    linear-gradient(135deg, #061316 0%, #07191c 48%, #051113 100%) !important;
+  color: var(--text) !important;
+}
+
+[data-testid="stAppViewContainer"] {
+  background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+  background: rgba(6,19,22,.78) !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(16,169,159,.12), transparent 32%),
+    linear-gradient(180deg, #071719 0%, #061316 100%) !important;
+  border-right: 1px solid rgba(77,219,208,.14) !important;
+  min-width: 330px !important;
+  max-width: 330px !important;
+}
+
+section[data-testid="stSidebar"] > div {
+  background: transparent !important;
+}
+
+/* Brand */
+section[data-testid="stSidebar"] .brand-mark {
+  background: linear-gradient(135deg, #0faea3, #075f5b) !important;
+  box-shadow: 0 12px 32px rgba(16,169,159,.28) !important;
+}
+
+section[data-testid="stSidebar"] .brand-title {
+  color: #effffd !important;
+}
+
+section[data-testid="stSidebar"] .brand-sub {
+  color: #8fb9b6 !important;
+}
+
+/* Section labels */
+section[data-testid="stSidebar"] .sidebar-section {
+  color: #55d8cf !important;
+}
+
+/* Navigation */
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] {
+  gap: 10px !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label {
+  min-height: 60px !important;
+  border-radius: 14px !important;
+  background: rgba(10,40,43,.52) !important;
+  border: 1px solid rgba(77,219,208,.08) !important;
+  transition: all .18s ease !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label p {
+  color: #dffaf7 !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label p::before {
+  color: #73e7df !important;
+  background: rgba(16,169,159,.11) !important;
+  border: 1px solid rgba(77,219,208,.18) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label:hover {
+  background: rgba(16,169,159,.12) !important;
+  border-color: rgba(77,219,208,.28) !important;
+  transform: translateX(3px) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label:has(input:checked),
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"] {
+  background: linear-gradient(100deg, rgba(16,169,159,.28), rgba(6,107,102,.12)) !important;
+  border-color: rgba(77,219,208,.48) !important;
+  box-shadow:
+    inset 4px 0 0 #35d7cc,
+    0 10px 28px rgba(0,0,0,.18),
+    0 0 24px rgba(16,169,159,.08) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p,
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"] p {
+  color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p::before,
+section[data-testid="stSidebar"] .stRadio label[data-checked="true"] p::before {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #18c7ba, #07877f) !important;
+  border-color: rgba(143,245,234,.40) !important;
+  box-shadow: 0 7px 20px rgba(16,169,159,.30) !important;
+}
+
+/* Main headings and supporting text */
+h1, h2, h3, h4 {
+  color: #effffd !important;
+}
+
+p, li, label, .stMarkdown {
+  color: #c6dedc;
+}
+
+[data-testid="stCaptionContainer"] {
+  color: #88aaa7 !important;
+}
+
+/* Cards / containers */
+div[data-testid="stMetric"],
+div[data-testid="stExpander"],
+.stCard {
+  background: linear-gradient(145deg, rgba(10,34,37,.92), rgba(7,25,28,.92)) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.16) !important;
+}
+
+div[data-testid="stMetric"]:hover,
+.stCard:hover {
+  border-color: var(--border-strong) !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.20), 0 0 26px rgba(16,169,159,.06) !important;
+}
+
+/* Buttons */
+.stButton > button,
+.stDownloadButton > button {
+  background: linear-gradient(135deg, #12afa4, #087d77) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(143,245,234,.30) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 22px rgba(16,169,159,.16) !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  background: linear-gradient(135deg, #18c7ba, #0a938b) !important;
+  border-color: rgba(143,245,234,.52) !important;
+}
+
+/* Inputs */
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox [data-baseweb="select"] > div,
+.stNumberInput input {
+  background: #091d20 !important;
+  color: #effffd !important;
+  border-color: rgba(77,219,208,.20) !important;
+}
+
+.stTextInput input:focus,
+.stTextArea textarea:focus,
+.stNumberInput input:focus {
+  border-color: #2acdc2 !important;
+  box-shadow: 0 0 0 1px #2acdc2, 0 0 18px rgba(16,169,159,.12) !important;
+}
+
+/* Chips / tags */
+.badge, .chip, .tag {
+  background: rgba(16,169,159,.11) !important;
+  border-color: rgba(77,219,208,.24) !important;
+  color: #9df4ed !important;
+}
+
+/* Tables */
+[data-testid="stDataFrame"] {
+  border: 1px solid rgba(77,219,208,.15) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Status */
+.status-dot.green {
+  background: #48df9a !important;
+  box-shadow: 0 0 12px rgba(72,223,154,.35) !important;
+}
+
+/* Links */
+a {
+  color: #5fe3da !important;
+}
+
+/* Footer */
+section[data-testid="stSidebar"] .footer-note {
+  color: #668d8a !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #061316;
+}
+::-webkit-scrollbar-thumb {
+  background: #155a57;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a817a;
+}
+
+/* =========================================================
+   FINAL TEAL OVERRIDE — apply teal consistently everywhere
+   Layout, content and functionality remain unchanged.
+   ========================================================= */
+
+:root {
+  --accent: #19c7bb;
+  --accent-2: #0b8f88;
+  --accent-soft: rgba(25,199,187,.12);
+  --accent-border: rgba(77,219,208,.24);
+  --accent-strong: rgba(77,219,208,.48);
+  --deep-bg: #061316;
+  --deep-panel: #0a1b1e;
+  --deep-panel-2: #0d2225;
+}
+
+/* Main content */
+.stApp {
+  background:
+    radial-gradient(circle at 84% 5%, rgba(25,199,187,.13), transparent 28%),
+    radial-gradient(circle at 8% 85%, rgba(7,107,102,.12), transparent 30%),
+    linear-gradient(135deg, #061316 0%, #071a1d 48%, #051113 100%) !important;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, rgba(12,34,38,.97), rgba(7,24,27,.96)) !important;
+  border-color: rgba(77,219,208,.22) !important;
+  box-shadow: 0 20px 70px rgba(0,0,0,.27), 0 0 35px rgba(16,169,159,.035) !important;
+}
+.hero:after {
+  background: radial-gradient(circle, rgba(25,199,187,.22), transparent 68%) !important;
+}
+.hero-kicker, .eyebrow {
+  color: #63e1d8 !important;
+}
+.hero p, .page-desc {
+  color: #a9c6c3 !important;
+}
+.flow-chip {
+  border-color: rgba(77,219,208,.22) !important;
+  background: rgba(16,169,159,.08) !important;
+  color: #d8f8f5 !important;
+}
+
+/* Metrics */
+.metric-card {
+  background: linear-gradient(145deg, rgba(12,34,38,.96), rgba(7,24,27,.94)) !important;
+  border-color: rgba(77,219,208,.18) !important;
+}
+.metric-icon {
+  background: rgba(16,169,159,.13) !important;
+}
+.metric-card.violet .metric-icon,
+.metric-card.green .metric-icon,
+.metric-card.amber .metric-icon {
+  background: rgba(16,169,159,.13) !important;
+}
+.metric-label {
+  color: #91b6b2 !important;
+}
+.metric-value {
+  color: #f2fffd !important;
+}
+
+/* Section headings */
+.section-title h2 {
+  color: #effffd !important;
+}
+.section-subtitle {
+  color: #91b8b4 !important;
+}
+
+/* Feature/info cards */
+.info-card {
+  background: linear-gradient(145deg, rgba(11,32,35,.94), rgba(7,24,27,.92)) !important;
+  border-color: rgba(77,219,208,.18) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+}
+.info-card:hover {
+  border-color: rgba(77,219,208,.34) !important;
+}
+.info-card h3 {
+  color: #effffd !important;
+}
+.info-card p {
+  color: #a9c5c2 !important;
+}
+
+/* Schema */
+.schema-box {
+  background: linear-gradient(135deg, rgba(11,32,35,.94), rgba(7,24,27,.90)) !important;
+  border-color: rgba(77,219,208,.18) !important;
+}
+.schema-label {
+  color: #72aaa5 !important;
+}
+.schema-chip,
+.schema-chip.rel {
+  background: rgba(16,169,159,.09) !important;
+  border-color: rgba(77,219,208,.20) !important;
+  color: #d6f7f3 !important;
+}
+
+/* Graph area */
+.graph-shell {
+  background: linear-gradient(145deg, rgba(8,27,30,.99), rgba(5,18,21,.99)) !important;
+  border-color: rgba(77,219,208,.22) !important;
+  box-shadow: 0 20px 55px rgba(0,0,0,.25) !important;
+}
+.graph-toolbar {
+  color: #9abbb8 !important;
+}
+.graph-dot {
+  background: #39d8c8 !important;
+  box-shadow: 0 0 12px rgba(57,216,200,.7) !important;
+}
+
+/* Buttons */
+.stButton > button,
+.stDownloadButton > button {
+  background: linear-gradient(135deg, #13b7ab, #087d77) !important;
+  border-color: rgba(125,242,232,.30) !important;
+  color: #ffffff !important;
+  box-shadow: 0 9px 24px rgba(16,169,159,.17) !important;
+}
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  background: linear-gradient(135deg, #1bcabd, #0a938b) !important;
+  border-color: rgba(143,245,234,.52) !important;
+  box-shadow: 0 12px 30px rgba(16,169,159,.25) !important;
+}
+
+/* Inputs */
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] > div,
+.stNumberInput input {
+  background: #091d20 !important;
+  border-color: rgba(77,219,208,.20) !important;
+  color: #effffd !important;
+}
+.stTextInput input:focus,
+.stTextArea textarea:focus,
+.stNumberInput input:focus {
+  border-color: #2acdc2 !important;
+  box-shadow: 0 0 0 1px #2acdc2, 0 0 18px rgba(16,169,159,.12) !important;
+}
+
+/* Expanders, tables and generic panels */
+.stExpander,
+div[data-testid="stMetric"],
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+  border-color: rgba(77,219,208,.18) !important;
+  background: rgba(8,27,30,.78) !important;
+}
+
+/* Sidebar — teal, without changing navigation structure */
+section[data-testid="stSidebar"] {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(16,169,159,.13), transparent 31%),
+    linear-gradient(180deg, #071719 0%, #061316 100%) !important;
+  border-right-color: rgba(77,219,208,.16) !important;
+}
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label {
+  background: rgba(10,40,43,.48) !important;
+  border-color: rgba(77,219,208,.08) !important;
+}
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:hover {
+  background: rgba(16,169,159,.13) !important;
+  border-color: rgba(77,219,208,.28) !important;
+}
+section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) {
+  background: linear-gradient(100deg, rgba(16,169,159,.28), rgba(6,107,102,.12)) !important;
+  border-color: rgba(77,219,208,.48) !important;
+  box-shadow: inset 4px 0 0 #35d7cc, 0 10px 28px rgba(0,0,0,.18), 0 0 24px rgba(16,169,159,.08) !important;
+}
+section[data-testid="stSidebar"] .stRadio label p::before {
+  color: #73e7df !important;
+  background: rgba(16,169,159,.11) !important;
+  border-color: rgba(77,219,208,.18) !important;
+}
+section[data-testid="stSidebar"] .stRadio label:has(input:checked) p::before {
+  background: linear-gradient(135deg, #18c7ba, #07877f) !important;
+  border-color: rgba(143,245,234,.40) !important;
+  box-shadow: 0 7px 20px rgba(16,169,159,.30) !important;
+}
+
+/* Text and links */
+a { color: #5fe3da !important; }
+[data-testid="stCaptionContainer"] { color: #88aaa7 !important; }
+.footer-note { color: #668d8a !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar-track { background: #061316; }
+::-webkit-scrollbar-thumb { background: #155a57; }
+::-webkit-scrollbar-thumb:hover { background: #1a817a; }
